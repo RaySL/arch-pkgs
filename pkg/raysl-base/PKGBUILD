@@ -1,0 +1,19 @@
+# Maintainer: RaySL
+pkgname=raysl-base
+pkgver=0.0.1
+pkgrel=2
+pkgdesc="Base system configuration for raysl systems"
+arch=('any')
+url="https://github.com/raysl/arch-repo"
+license=('MIT')
+depends=('sudo' 'vim' 'ripgrep' 'exa' 'avahi'
+'nss-mdns' 'zsh' 'tmux'
+'htop' 'openssh' 'wget' 'bash' 'bzip2'
+'coreutils' 'cryptsetup' 'device-mapper' 'dhcpcd' 'diffutils' 'file'
+'filesystem' 'findutils' 'gawk' 'gcc-libs' 'gettext' 'glibc' 'grep' 'gzip'
+'inetutils' 'iproute2' 'iputils' 'less' 'licenses' 'linux' 'logrotate'
+'man-db' 'man-pages' 'mdadm' 'pacman' 'pciutils' 'pcmciautils' 'perl'
+'procps-ng' 'psmisc' 's-nail' 'sed' 'shadow' 'sysfsutils' 'wpa_supplicant'
+'systemd-sysvcompat' 'tar' 'texinfo' 'usbutils' 'util-linux' 'which')
+
+
