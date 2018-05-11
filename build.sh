@@ -31,6 +31,6 @@ repose --verbose --xz --root="$repo" "$REPO_NAME"
 for package in $PACKAGES; do
     cd "$package"
     rm -f *.pkg.tar.xz *.log
-    rm -rf "$(basename $package)"
+    rm -rf "$(basename $package)" src
     cd -
 done
