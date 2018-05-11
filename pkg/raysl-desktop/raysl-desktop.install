@@ -1,0 +1,8 @@
+post_install() {
+	systemctl --user enable --now redshift.service
+  post_upgrade
+}
+
+post_upgrade() {
+
+}

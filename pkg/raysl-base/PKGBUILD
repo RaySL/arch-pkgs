@@ -1,19 +1,31 @@
 # Maintainer: RaySL
 pkgname=raysl-base
 pkgver=0.0.1
-pkgrel=2
+pkgrel=5
 pkgdesc="Base system configuration for raysl systems"
 arch=('any')
 url="https://github.com/raysl/arch-repo"
 license=('MIT')
-depends=('sudo' 'vim' 'ripgrep' 'exa' 'avahi'
+depends=('sudo' 'vim' 'neovim' 'ripgrep' 'exa' 'avahi'
 'nss-mdns' 'zsh' 'tmux'
-'htop' 'openssh' 'wget' 'bash' 'bzip2'
-'coreutils' 'cryptsetup' 'device-mapper' 'dhcpcd' 'diffutils' 'file'
-'filesystem' 'findutils' 'gawk' 'gcc-libs' 'gettext' 'glibc' 'grep' 'gzip'
-'inetutils' 'iproute2' 'iputils' 'less' 'licenses' 'linux' 'logrotate'
-'man-db' 'man-pages' 'mdadm' 'pacman' 'pciutils' 'pcmciautils' 'perl'
-'procps-ng' 'psmisc' 's-nail' 'sed' 'shadow' 'sysfsutils' 'wpa_supplicant'
-'systemd-sysvcompat' 'tar' 'texinfo' 'usbutils' 'util-linux' 'which')
+'htop' 'openssh' 'wget' 'bash'
+'bzip2' 'coreutils' 'cryptsetup' 'device-mapper' 'dhcpcd'
+'diffutils' 'e2fsprogs' 'file' 'filesystem' 'findutils'
+'gawk' 'gcc-libs' 'gettext' 'glibc' 'grep' 'gzip'
+'inetutils' 'iproute2' 'iputils' 'jfsutils' 'less' 'licenses'
+'linux' 'logrotate' 'lvm2' 'man-db' 'man-pages' 'mdadm' 'nano'
+'netctl' 'pacman' 'pciutils' 'pcmciautils' 'perl' 'procps-ng'
+'psmisc' 'reiserfsprogs' 's-nail' 'sed' 'shadow' 'sysfsutils'
+'systemd-sysvcompat' 'tar' 'texinfo' 'usbutils' 'util-linux'
+'vi' 'which' 'xfsprogs')
 
+source=('sudoers.wheel'
+				'raysl-base.sh')
+md5sums=('378c031990cc61a3aa191ab75a9b13b6'
+         '962a3666dc3dcbdee32630294bbfa730')
+
+package() {
+	install -Dm 0640 sudoers.wheel "$pkgdir/etc/sudoers.d/wheel"
+	install -Dm 0750 raysl-base.sh "$pkgdir/etc/profile.d/raysl-base.sh"
+}
 

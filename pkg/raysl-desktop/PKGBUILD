@@ -1,0 +1,23 @@
+# Maintainer: RaySL
+pkgname=raysl-desktop
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Desktop system configuration for raysl systems"
+arch=('any')
+url="https://github.com/raysl/arch-repo"
+license=('MIT')
+install=raysl-desktop.install
+depends=('xorg-server' 'redshift' 'mupdf' 'qutebrowser' 'rofi')
+
+source=('redshift.conf')
+md5sums=('fd16c5015b716ef72ceb10018b8c49b1')
+
+package() {
+	install -Dm 0755 redshift.conf "$pkgdir$HOME/redshift/redshift.conf"
+	#install -Dm 0750 raysl-base.sh "$pkgdir/etc/profile.d/raysl-base.sh"
+}
+
+post_install() {
+	systemctl --user enable --now redshift.service
+}
+

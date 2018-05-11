@@ -1,0 +1,27 @@
+# Maintainer: Ray Lucas
+pkgname='raysl-2bwm-git'
+pkgver=0.2.r10.g83a15a0
+pkgrel=1
+pkgdesc="A fast floating window manager with raysl configurations"
+arch=('i686' 'x86_64')
+url="https://github.com/RaySL/2bwm"
+license=('ISC')
+provides=('2bwm')
+conflicts=('2bwm-git' '2bwm' 'mcwm' 'mcwm-git') # due to /usr/bin/hidden program
+depends=('xcb-util-wm' 'xcb-util-keysyms' 'xcb-util-xrm')
+makedepends=('git' 'xcb-util')
+source=("$pkgname::git+https://github.com/RaySL/2bwm.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd $pkgname
+  git describe --long --tags | sed -r 's/^v//;s/([^-]*-g)/r\1/;s/-/./g'
+}
+build() {
+  cd $pkgname
+  make PREFIX=/usr
+}
+package() {
+  cd $pkgname
+  make DESTDIR="$pkgdir" PREFIX=/usr MANPREFIX=/usr/share/man install
+}

@@ -1,0 +1,5 @@
+# Managed by raysl-base package
+# Changes will be overridden
+
+%wheel ALL=(ALL) ALL
+Defaults passwd_timeout=0
